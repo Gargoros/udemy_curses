@@ -1,0 +1,2 @@
+#myexample
+print("myexample")

@@ -1,0 +1,8 @@
+Name|Phome
+Mihail|2362
+John|1234
+Bob|5252
+Sam|1236
+Pam|5475
+Eric|4564Data|2454
+Data|2454
