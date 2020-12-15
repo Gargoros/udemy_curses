@@ -22,5 +22,7 @@ for card in current_hand:
         cards_sum = sum(weight_card)
 
 print(cards_sum)
-        
+
+card_sum = sum([card_deck[card] for card in current_hand])
+print(card_sum)
         
