@@ -7,7 +7,7 @@
 
 limit = int(input("Please enter an integer "))
 arg_list = []
-for num in range(0, limit + 1):
+for num in range(limit + 1):
     if num % 3 == 0:
         arg_list.append(num)
     elif num % 5 == 0:
@@ -16,5 +16,5 @@ for num in range(0, limit + 1):
 print(sum(arg_list))
 
 
-arg_list = [num for num in range(0, limit + 1) if num % 3 == 0 or num % 5 == 0]
+arg_list = [num for num in range(limit + 1) if num % 3 == 0 or num % 5 == 0]
 print(sum(arg_list))
