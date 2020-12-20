@@ -11,35 +11,35 @@
 import random
 
 game_items   = ["R", "S", "P"]
-ai_hand      = random.choice(game_items)
-game_raund   = 1
+game_raund   = True
 print("\nLet's play rock, paper, scissors\n")
 print(game_items)
-print(ai_hand)
 
-while True:
+while game_raund:
+    ai_hand = random.choice(game_items)
+    print(ai_hand)
     player_hand = str(input("Enter a short name for the figure "))
     if player_hand == "R" or player_hand == "S" or player_hand == "P":
         print(f"Player chose is {player_hand} and ai chose is {ai_hand} ")
-        break
-    elif player_hand == "replay":
-        break
+        if player_hand == "R" and ai_hand == "S" or player_hand == "S" and ai_hand == "P" or player_hand == "P" and ai_hand == "R":
+            print("PLAYER WIN")
+            game_raund = False
+        elif ai_hand == "R" and player_hand == "S" or ai_hand == "S" and player_hand == "P" or ai_hand == "P" and player_hand == "R":
+            print("AI WIN")
+            game_raund = False
+        else:
+            print("DRAW")
+        while game_raund == False:
+            print("Do you want to play again\n")
+            player_hand = str(input("Enter 'yes' to replay or 'no' to quit "))
+            if player_hand == "yes":
+                print("Let's play again!")
+                game_raund  = True
+            elif player_hand == "no":
+                print("Good luck")
+                break
+            else:
+                print("It doesn't seem like an answer!!!")
     else:
-        print("It doesn't look like a short name for the figure") 
-          
-while game_raund != 0 :
-    if player_hand == "R" and ai_hand == "S" or player_hand == "S" and ai_hand == "P" or player_hand == "P" and ai_hand == "R":
-        game_raund -= 1
-        print("PLAYER WIN")
-    elif ai_hand == "R" and player_hand == "S" or ai_hand == "S" and player_hand == "P" or ai_hand == "P" and player_hand == "R":
-        game_raund -= 1
-        print("AI WIN")
-    else:
-        print("DRAW")
-        break
+        print("It doesn't look like a short name for the figure")
 print("GAME OVER")
-
-
-
-    
-        
