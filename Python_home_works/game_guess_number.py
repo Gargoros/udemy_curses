@@ -11,9 +11,10 @@
 import random
 
 ai_num = random.randint(1, 50)
-#print(ai_int)
+print(ai_num)
 game_raund = 6
 print("Guess a number from 1 to 50 ")
+print("Try to guess a number ")
 
 while game_raund > 0:
     player_num = int(input("\n Enter the hidden number "))
@@ -24,6 +25,9 @@ while game_raund > 0:
         print("The hidden number is greater")
         game_raund -= 1
     else:
-        game_raund = 0
         print("\nYou win")
+        break
+    if game_raund == 0 and player_num != ai_num:
+        print("Your tries is over")
+        break
 print("Game Over")
