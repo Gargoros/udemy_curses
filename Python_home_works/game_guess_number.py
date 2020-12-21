@@ -19,15 +19,15 @@ print("Try to guess a number ")
 while game_raund > 0:
     player_num = int(input("\n Enter the hidden number "))
     if player_num > ai_num:
-        print("The hidden number is less")
+        print("The hidden number is too less")
         game_raund -= 1
     elif player_num < ai_num:
-        print("The hidden number is greater")
+        print("The hidden number is too high")
         game_raund -= 1
     else:
-        print("\nYou win")
+        print(f"\nYou win!")
         break
     if game_raund == 0 and player_num != ai_num:
-        print("Your tries is over")
+        print(f"Your tries is over! The hidden number is {ai_num}")
         break
 print("Game Over")
