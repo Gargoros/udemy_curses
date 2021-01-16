@@ -29,13 +29,13 @@ player_2_name = str(input("Player 2, enter your name, or your name will be Playe
 
 
 def sticks_in_game():
-    stick = input("Enter the number of sticks in the game ")
+    stick = input("\nEnter the number of sticks in the game ")
     while True:
         if stick.isdigit():
-            print(f"{stick} sticks in the game ")
+            print(f"\n{stick} sticks in the game \n")
             return int(stick)
         else:
-            print("10 sticks in the game ")
+            print("\n10 sticks in the game \n")
             return 10
 
 sticks = sticks_in_game()
@@ -99,11 +99,11 @@ def board_game_sticks():
     sticks
     game_rules()
     while sticks != 0:
-        pl1_select = int(input(f"{players_names[0]} Enter the number of sticks to remove, according to the rules of the game "))
+        pl1_select = input(f"{players_names[0]} Enter the number of sticks to remove, according to the rules of the game ")
         if select_sticks(pl1_select, sticks, player_1_name) < 4:
             print(f"{players_names[0]} win")
             break
-        pl2_select = int(input(f"{players_names[1]} Enter the number of sticks to remove, according to the rules of the game "))
+        pl2_select = input(f"{players_names[1]} Enter the number of sticks to remove, according to the rules of the game ")
         if select_sticks(pl2_select, sticks, player_2_name) < 4:
             print(f"{players_names[1]} win")
             break
