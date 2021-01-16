@@ -24,9 +24,21 @@
 
 
 #Переменные
-sticks = int(input("Enter the number of sticks in the game "))
 player_1_name = str(input("Player 1, enter your name, or your name will be Player 1 "))
 player_2_name = str(input("Player 2, enter your name, or your name will be Player 2 "))
+
+
+def sticks_in_game():
+    stick = input("Enter the number of sticks in the game ")
+    while True:
+        if stick.isdigit():
+            print(f"{stick} sticks in the game ")
+            return int(stick)
+        else:
+            print("10 sticks in the game ")
+            return 10
+
+sticks = sticks_in_game()
 
 # Приветсвие
 def greeting(name1, name2):
@@ -48,14 +60,14 @@ def greeting(name1, name2):
 players_names = greeting(player_1_name, player_2_name)
 # Правила игры
 def game_rules():
-    print('''    In the game "Sticks" 
+    print('''\n\n    In the game "Sticks" 
     you will need to demonstrate your ability to calculate moves in advance. 
     There are twenty wooden sticks on the playing field in front of you. 
     The players, in turn, will take one, two or three sticks 
     (how much to take is up to the player). 
     The one who took the last stick loses, 
     so the goal of the game is to leave this stick to the opponent. 
-    Player 1 traditionally has the first move.''')
+    Player 1 traditionally has the first move.\n\n''')
 
 #Палочки играков
 
@@ -69,7 +81,7 @@ def select_sticks(player_select, stick, player_name):
     if player_select in range(1, 4):
         print(f"{player_name} removes {player_select} sticks from the game")
         sticks -= player_select
-        print(sticks)
+        print(f"{sticks} sticks left in the game \n")
         return sticks
     else:
         print("Incorrect input, please try again")
@@ -79,23 +91,21 @@ def select_sticks(player_select, stick, player_name):
 
 def board_game_sticks():
     '''
-    DOCSTRING:
-    INPUT:
-    OUTPUT:
+    DOCSTRING: implements the game and calls functions to understand the rules and the course of the game
+    INPUT: NONE
+    OUTPUT: NONE
     '''
     greeting(player_1_name, player_2_name)
+    sticks
     game_rules()
     while sticks != 0:
-        pl1_select = int(input(f"{players_names[0]} Enter the number of sticks to remove "))
+        pl1_select = int(input(f"{players_names[0]} Enter the number of sticks to remove, according to the rules of the game "))
         if select_sticks(pl1_select, sticks, player_1_name) < 4:
-            print("p1 win")
+            print(f"{players_names[0]} win")
             break
-        pl2_select = int(input(f"{players_names[1]} Enter the number of sticks to remove "))
+        pl2_select = int(input(f"{players_names[1]} Enter the number of sticks to remove, according to the rules of the game "))
         if select_sticks(pl2_select, sticks, player_2_name) < 4:
-            print("p2 win")
+            print(f"{players_names[1]} win")
             break
-
-        
-
 
 board_game_sticks()
