@@ -24,8 +24,8 @@
 
 
 # Переменные для ввода имен двух игроков
-player_1_name = str(input("Player 1, enter your name, or your name will be Player 1 "))
-player_2_name = str(input("Player 2, enter your name, or your name will be Player 2 "))
+player_1_name = str(input("\nPlayer 1, enter your name, or your name will be Player 1 "))
+player_2_name = str(input("\nPlayer 2, enter your name, or your name will be Player 2 "))
 
 # Приветсвие: Функция выполняет проверку ввода двух игроков,
 # присваивает им имена и выводит на консоль приветсвие игроков
@@ -48,7 +48,7 @@ players_names = greeting(player_1_name, player_2_name)
 def game_rules():
     print('''\n\n    In the game "Sticks" 
     you will need to demonstrate your ability to calculate moves in advance. 
-    There are twenty wooden sticks on the playing field in front of you. 
+    There are wooden sticks on the playing field in front of you. 
     The players, in turn, will take one, two or three sticks 
     (how much to take is up to the player). 
     The one who took the last stick loses, 
@@ -58,13 +58,13 @@ def game_rules():
 # Функция выполняет проверку количества палочек в игре,
 # по умолчанию возврощает 10 палочек, результат записывается в новую переменную
 def sticks_in_game():
-    stick = input("\nEnter the number of sticks in the game ")
+    stick = input("\nEnter the number of sticks in the game, otherwise 10 sticks will be selected: ")
     while True:
-        if stick.isdigit():
+        if stick.isdigit() and int(stick) > 10:
             print(f"\n{stick} sticks in the game \n")
             return int(stick)
         else:
-            print("\n10 sticks in the game \n")
+            print("\nSelected 10 sticks in the game \n")
             return 10
 
 sticks = sticks_in_game()
@@ -76,7 +76,7 @@ def select_sticks(player_name):
     global sticks
     while True:
         print(f"\n{sticks} sticks left in the game \n")
-        player_select = input(f"{player_name} Enter the number of sticks to remove, according to the rules of the game ")
+        player_select = input(f"{player_name} Enter the number of sticks to remove, according to the rules of the game: ")
         if player_select.isdigit() == True:
             player_select = int(player_select)
             if player_select in range(1, 4):
@@ -91,7 +91,7 @@ def select_sticks(player_name):
 # Проверка победы игрока
 # Функция выполняет проверку условия победы одного из двух игроков и выводит на консоль имя победителя
 
-def win(name1, name2):
+def win_condition(name1, name2):
     while sticks > 0:
         if select_sticks(name1) < 4:
             print(f"{name1} win")
@@ -107,7 +107,7 @@ def board_game_sticks():
     players_names
     game_rules()
     sticks
-    win(players_names[0], players_names[1])
+    win_condition(players_names[0], players_names[1])
     
 
 
