@@ -24,8 +24,8 @@
 
 
 # Переменные для ввода имен двух игроков
-player_1_name = str(input("\nPlayer 1, enter your name, or your name will be Player 1 "))
-player_2_name = str(input("\nPlayer 2, enter your name, or your name will be Player 2 "))
+player_1_name = str(input("\nPlayer 1, enter your name, or your name will be Player 1: "))
+player_2_name = str(input("\nPlayer 2, enter your name, or your name will be Player 2: "))
 
 # Приветсвие: Функция выполняет проверку ввода двух игроков,
 # присваивает им имена и выводит на консоль приветсвие игроков
@@ -93,11 +93,13 @@ def select_sticks(player_name):
 
 def win_condition(name1, name2):
     while sticks > 0:
-        if select_sticks(name1) < 4:
+        if select_sticks(name1) < 2:
             print(f"{name1} win")
+            print(sticks)
             break
-        elif select_sticks(name2) < 4:
+        elif select_sticks(name2) < 2:
             print(f"{name2} win")
+            print(sticks)
             break
 
 #Ход игры
