@@ -18,13 +18,7 @@
 
 def warn_the_sheep(queue):
     if queue[-1] == "wolf":
-        print("Pls go away and stop eating my sheep")
+        return "Pls go away and stop eating my sheep"
     else:
-        sheep = queue.index("wolf") - 2
-        print(f"Oi! Sheep number {sheep}! You are about to be eating by a wolf!")
-
-queue = ["sheep", "sheep", "sheep", "wolf", "sheep"]
-
-x = warn_the_sheep(queue)
-print(x)
-
+        sheep = (len(queue) - 1) - queue.index("wolf")
+        return f"Oi! Sheep number {sheep}! You are about to be eaten by a wolf!"
