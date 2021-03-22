@@ -35,7 +35,7 @@ def cave_check():
     if player_cave == friendly_dragon:
         print("\nВы приближаетесь к пещере...\nЕе темнота заставляет вас дрожать от страха...\n", end = "")
         time.sleep(2)
-        print("Большой дракон медленно выходит к вам на встречу! Смотря на вас приокрывает пасть...\n...и предлогает взять сокровище!\n")
+        print("Большой дракон медленно выходит к вам на встречу! \nСмотря на вас приокрывает пасть...\n...и предлогает взять сокровище!\n")
         time.sleep(2)
     else:
         print("\nВы приближаетесь к пещере...\nЕе ослепительное свечение успокаивает вас...\n", end = "")
@@ -47,28 +47,21 @@ def cave_check():
 def replay():
     print("\nПопытаете удачу еще раз? (да или нет)\n")
     while True:
-        player = input()
-        try:
-            player = str(player)
-            if player.lower() != "да" or player.lower() != "нет":
-                print("\nЭто не похоже на ответ!\nВы должны ввести либо 'да', либо 'нет'!\n")
-            else:
-                print(player)
-                break
-        except ValueError:
-            print("\nЭто не то, что нужно ввести!\nПопробуй снова!\n")
+        player = input().lower()
+        player = str(player)
+        if player != "да" and player != "нет":
+            print("\nЭто не похоже на ответ!\nВы должны ввести либо 'да', либо 'нет'!\n")
+        else:
+            print()
+            break
     return player
 
 def dragon_lands():
     introduction()
     cave_check()
     if replay() == "да":
-        introduction()
-        cave()
-        cave_check()
-    if replay() == "нет":
-        exit
-
-dragon_lands()
-
+        dragon_lands()
+    else:
+        print("\nКоней игры\n")
+dragon_lands()    
 
