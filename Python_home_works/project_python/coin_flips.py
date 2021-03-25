@@ -4,9 +4,11 @@ input()
 flips = 0
 heads = 0
 while flips < 1000:
-    if random.randint(0, 1) == 1:
-        heads += 1
+    if random.randint(0, 1) == 1 or random.randint(0, 1) == 0:
         flips += 1
+    if random.randint(0, 1) == 1:
+        flips += 1
+        heads += 1
     if flips == 900:
         print("900 подкидываний и 'Орел' выпал " + str(heads) + "раз.")
     if flips == 100:
