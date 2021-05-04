@@ -146,8 +146,9 @@ def player_choce():
 def game_logic(pict, game_raund):
     '''Проверка на совподения ввода от игрока и загаданного слова, так же отрисовка "виселицы" '''
     secret_word = random_word(words)
-    #print(secret_word)
+    print(secret_word)
     guess_word = ["_" for letter in secret_word]
+    wrong_letters = []
     while game_raund > 0:
         player = player_choce()
         if player in secret_word:
@@ -161,7 +162,9 @@ def game_logic(pict, game_raund):
             print(f"\nУра ты угадал загаданное слово!\nИ этим словом было: {secret_word}")
             break
         if player not in secret_word:
+            wrong_letters.append(player)
             print(pict[len(pict) - game_raund])
+            print(f"{wrong_letters} - таких букв в этом слове нету!\n")
             game_raund -= 1
             print(f"\n{player}: Такой буквы в это слове нету, попробуй еще раз!")
             print(f"У тебя осталось {game_raund} попыток")
@@ -192,6 +195,8 @@ def game():
     game_logic(player_difficulty, attempt)
 
     if replay() == "да":
+        player_difficulty = difficulty_level(hangman_pict)
+        attempt = len(player_difficulty)
         game_logic(player_difficulty, attempt)
     else:
         print("\nКонец Игры\n")
